@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paz Church Paraipaba - Site Oficial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.8;
+            color: #444;
+            background-color: #f9fafb;
+            overflow-x: hidden;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 400;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #dbeafe;
+            transform: translateY(-2px);
+        }
+
+        /* Seção Hero */
+        .hero {
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4RSkv3u7ex2heNMZ8eLCqbpUTAs_dK2Mx6w&s') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 3rem;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 400;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1e3a8a;
+        }
+
+        /* Seções */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #3b82f6;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: contain; /* Alterado para 'contain' para evitar cortes */
+            max-height: 400px; /* Altura máxima ajustável */
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+        }
+
+        .event-list, .life-group-list {
+            list-style: none;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .event-list li, .life-group-list li {
+            background: #eff6ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Contato */
+        .contact p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Rodapé */
+        footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #dbeafe;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav a {
+                margin: 0.5rem 0;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+            }
+
+            .gallery img {
+                max-height: 300px; /* Ajuste para telas menores */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1>Paz Church Paraipaba</h1>
+            <nav>
+                <a href="#home">Início</a>
+                <a href="#about">Sobre Nós</a>
+                <a href="#events">Eventos</a>
+                <a href="#life-groups">Life Groups</a>
+                <a href="#contact">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <h2>Junte-se à Família Paz Church Paraipaba</h2>
+            <p>Um lugar onde você encontra paz, propósito e conexão com Deus.</p>
+            <a href="#events" class="btn">Participe dos Nossos Eventos</a>
+        </div>
+    </div>
+
+    <!-- Sobre Nós -->
+    <section id="about">
+        <h2>Quem Somos</h2>
+        <div class="card">
+            <p>A Paz Church Paraipaba é mais do que uma igreja – é uma família. Estamos comprometidos em viver o evangelho de forma prática, acolhendo a todos com amor e oferecendo um ambiente onde você pode crescer espiritualmente e encontrar propósito. Venha fazer parte da nossa história!</p>
+        </div>
+        <div class="gallery">
+            <!-- Placeholder para fotos do Instagram @pazparaipaba -->
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUXGB0aGBcYGBgdHRoYFxgdGBgYHxgYHiggGholHRoZJTEhJSkrLi4uHR8zODMtNygtLisBCgoKDg0OGxAQGy0fHSUrLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0vLS0tLS0tLSstLf/AABEIAPsAyQMBIgACEQEDEQH/xAAcAAAABwEBAAAAAAAAAAAAAAAAAQIDBAUGBwj/xABOEAACAQIDBAUHBgkMAgEFAAABAhEAAwQSIQUxQVEGEyJhcQcygZGhsdEUI0JTgpIzUmJyk7LB0vAVFzRDY3ODorPC4fEkdHUIFiVEVP/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAIxEBAQACAgICAwEBAQAAAAAAAAECERIhAzFRYRNB8MEyIv/aAAwDAQACEQMRAD8A6qaMCgKAFcXQdEBR0c0BChNA0KAstGKI0U0Bmiij8KIUAoCst5Q0VrFpWUEG8DmY9lYRyXIkZoUNCyATEzuNX5PWAOKe26wAvzSKAo87KWfKoZ+yZy9nU68B1nj3hycr5NZcW9IoRVeMc/0lA+0DxEER3ZjG/sxxo2xl3UC1OuhzbxrJ7uGm/XjFY1W9p5FA1Gw11ye0mURv7+zpHpYTxy99SStSqKKWgpJo1agUDwoxRTQoFChFEtKmgSRFJFKaioBRwKKiy91AQo6Cmk5hzqKMGjiqbpNj3tIoTRnJE8gN8d+orLDHX/rbn32+NXQ6CaFYAbQu8btz7zfGnBjrv1j/AH2+NXQ3q0RrBHHXfrH++3xov5Qu/WXPvt8aaG+oyK5//Kl36x/vt8aA2jcP9a4+03xpo03GPwNq8uW6iuszlYSJG6mMDsqxZzdTaS3mjNlWJiYnnvPrrIHGXeF2595vjV50cx9xmNtyW0kEnURwniNfZTd1pOM9rs2F/FX1ClqABoI7qwflh21iMNhrJw91rZe6VZliSoQmA0SNeIg1x0dJcb//AGYmf7+7+9XTHx3KbZuWnp+jFeZsL0gxrsB8rxJ/x7v7GqYvSPF2zricQxkb712O8Rm5VMvHq62su5t6NilxXnZOleIa0ydfiA0yH665I4bw27mDpV5sDA4q9Z6x9pYlCdyi9cMeJLe6s6knd01MbfTttFFec9t4/H4a4bb4zEniGF+7qPDNpUO3t7GtuxeJ/T3f3q6/g3N7c+f609NUQrzIekOO3fK8V+nu/vUuztraDEKuKxRJMAC/d1J7s1X8H2nP6emKBrnHkxfaK33tY17hTqcyrdOZg2dQDmIkiCeJro1cMpq6dIETQijihHef49NRSJpq9h0aCyBspzLIBgwROu6nIpu+jHLlaAGk6TIg6e6iKHpk0dV9v/bWbmp/lO2pbsCwXYKGNyO+Mk7vGsC3TTDj6THwU/trcnRtrwKWsVhz05t/RR/ZTVzpo5822B4kn3VdU5R0Akd1NwK5ve6WYg7mC+A+NQL+2rzb7z+gx7qcTk6nexNtdWKjxIqsxHSfDLoHViOAIrlz3GJntE8zrTmFwskTV4pydV6PbbTE3ltjRSdWALRW9w2yjaxCsjZrZVgZgENpHiKwvk4wgUzFdOFyYrjll3puTpzfy6ORhsNH1x/02rjiYdmzMBoN58a7F5dv6Nhv74/6bVhdi4ZrNsO4DLcIgCDBPDXwFejHPjgxMOWTO4EZLg48D6RUnHCVDcz/AN1KxWBJzXVPYFyCRGj5cwGmh9FRMbdGUAGTM+HdUzu8ttYzWNRrLa1oMBinQqBJB4AnXhurNoda3XRvZjlwVU6KNcoOQlVJdOfhvmaxndNeP2VtnozcvoHuX7aXdclt9JUkaFh5sCTqN9SdldEEFjLcFvrdSLlu5m46aaCIjSKd2RgLmKc2n7FtWPW3Wy9Y7DXq0PKOXjyFabavQ+z1U2AyuvNi2fmDm3E8CIrP/vjqVvfj5bscz2tZtocuV1uAwQwjQcd3qintgMUm6j20ubkDhj2Syh2kKQkA74J7uNbe1t61cUJcsWb6bgWVSY5ajQ6VRdKsLgx1T2FNstM2xqoI3mT5p4Ru8OPa7mGq442XPbWdBNrNdxbL1gcJh23KQs9Zb1BYyfZW/rkfkkuzjroH1B/1LddZOlcNaayu6WKP1UiaOfD2UZFTF+8RlhC0mDBXsiCZMkaacKdpNRXJ/wD6gPMwX5173W647XoHyp9EMRtAYYYfqx1ZuFs7ERnCARAM+aaxtryL4re+Jsr4KzfCu+Hpiy2ub2KkCujDyS5POxJPgke8msTjNkMlx0kQrEAkgTB31uywss9oSpTi2xUm3gObqPTNTrWy043CT+Sh99ZRXIBU7BW5NTE2dbH0bp+6PfUa1si/euN1RCqDAUkzpvmBqZrNWOmdD+yorcYS5LDwrzvhcdisM8W7jrBg6yPUZHrFdI8ne3b2IxQF27INpjkywARl1muWWF3tuZdaK8un9Gw398f9Nqw/R/ELlAY9m2Z38Br7/fXWPKH0UfaFhEt3FRrb5xnBgypWCRqN/I1z615LNoiQHwwBGsXLmpjQ6266yy462kuqobe0gUe2VEM8KRoFlp8zcOE7yfRVJj7ZU6766Jh/JjjQBLWDH9o+p+5Sf5sscYznDHeD84/o/q/Cs3LvbWprTm1gSR/HfWu2Ht82yASYiBz7quLPkpxmcktYA3CHc+zIKN/JTjAxy3LJG8Es4PfIyH1zWcrKuN4iwm1cmYl8oW52SRIBfUeHZ0mDvrb9H+kVvEk2tFuATAYEMBxEQfWOdZVvJ1jirKWsQVA/CPvDKZ/B8hURPJhj0ZXt3LCsDIIuXAQe4i3NMFzsrnw2rctuxUwcxnxnfFazbV0ZbaIo62ALgjU3GktpyBMevuqbhfJRjxeW47YcgOHYdY+vazH+rFXuzugOKt3xfcWHIYsPnHGUk/mdrjv/AGV6eWLzaq38m2ykwq9U2uIe2XcgHsrmWFzfaHqPKtwapdjbIuW7rXbpTMVKgLJ3kN5xA5DSKuorz5631dumO9dhStaTwpMd1ZUGFEKVQUUDG0cZ1Nm5dyliqyFHEzAHhMVm9nbSd7lgtiu2zOL1kKI1B6uJnKo7O4ySZJmtVfsh1ZG3EQayL4IWMQpYSRBBG5lB4d/dXXH1CXte4u3pXAukF8rirwAXS43Dvr0FduKy5lMjnXnrpEs4q+f7RvfXXK9Lmjpi35x4AU6MS5+k3rqOiVLt2qwwO25kEk6GtX0XYJeNoo5kAEECQTv4SAPE1m7VgzOunGtb0XN0XC9yZI3tPPQCQNI9FZrUStqdGUzTlIUkARvJb0cN57gfGm/JzgTa2gUmYt3NfStbA3laDoY18Dz9tRui2CIxAvZdGDgHwIE+B4c4rOzS66TbeGERWKFy7ZQJAGgmSYPurL3/ACguu7Dqftn92h5Yb+Szhz/an9Q1isM3WCmMmmbW02X5Rme8qXMOFU72VmYj7OWtDf6XYWDluBmA0WGEnlJGlcj6Q3DatqiGCwzORvOsBfDf7Kzdi6c2/wD7rXGG3XMf5RLlv/8AXQ/4h/dpeA8pBfzrKL9s/u1zXE44G2gc9rXnumBUbMOBB8DTjDbsX/30PxF+8fhVbtLylG1qLCt9sj9lc6stVftjEHdTjDbqOzfKgbm+wo+2f3anXfKCB/Vj7x+Fcr2OsCpl404w2670Y6WpjHa2EKsq5t8giQp4Ag9oVpZrl/kswzLibjEQDZIH6RK6ga55TVagjRUDRR/Ef8VAdChFCKCNjsaLQBImd3o/7rn/AJQOkN4dQbayDc100gA6Tw/4qy8pG0Llp8IquERzd6xjwVBb113bzXMLnSy4+dbzZ7YPYO7UHQwN+lejC48NftrlJNOlbH2lmWV0J3qaw/SPo9cS410Q6uxaBvEmSMvH0UWB6S2kUZT25mZ3LyrTYPblnFWiVYSPQQf2Gue7GWDsYctqB6asrGzjx/j01f7H2bqQdSToxPHxNTMdhAoI0n3fxpp41uTfbFumbvWwikzuBIA7hvNTsXjGvKj23Ui2qkqDBZWXMxAIAIE7t4iYintsYdgl231QOdITSO1kOWCYgyTvNPdE9ndSM11IIRLYBhgXKiYy+cQFjQxr41dT0b/aTsPFZwouSlskyRvYD6IA1C6atymOY3ezcTNwKBC5Z3RppGh3dwidDu40iBZkKpcaAQOzO6W4nQdwgRzq02XZIurviHLE8T2VB9Pajuilx1jWd7rPeWDD57WHH9qf9M1h8GTa310PymWmdMOEUk9Yd35hrnO1bNwMEYFTHsrnj6bp/ajW76gEw4kD8pR+3u8KzzYVV4g+FWyYJkBgnUVQ4/CMhlhv+l/zW0FixmPcNB/1Uc2NDSVfUSa0HVjqySBAjXx4UFLhMa1oj6Q5H9h4U5tfGW7kFZ7wRqKRi7MBSNzTHoMVBdKC62RZeJAJFa/YOx+s7Tj0GqfyebYTrfk9+Mr6W2jc8wEJ5HgTx04iOm4rB5EOTSoHOjGVbzIsSLZPqZa1FYToKGOLuljr1R/XSt0RXPL21AnvpeYUmKFZUc0dFNCKK5r5bL5VcKABr1xM9ypp6yPVXFbitxBgdxgT313DywWgVw087g9ZtfCsT0h2nbt4EYZFBe4c1xo3Kp7IBrpjembNsXgVbMSDHZM+Ea1fdCLpF0qAZYams1rWw6MobKPc6t2yEG5A82yBLNMefrMchXSsS6aLpPtVrfV20YIQQzNCzlMgAmOdO2druyQQjHi3H2GAe+KzvTaxdW8BcyFWRShTikkqx5kzSeieIi4tsnRtNfSRWdajXLdbe5fBtpcgatB1y9rL+TuHo9PO92eitZUbiJaTrlbXjzgxWNZ+xlj6U+GhHt/ZVjhVvCAGAWI1OmmnDupcfg5fLRbPKrCsROmvAx3+gb6vMJdUXAvFgYHcok+9axeIe4mu8c6tOil8PfB4hGjumJ/ZTLO61UmE3uLLpjedFtOLbOAxDZQSVBG/wkVgtrX+uuK0QAIHOuq4/aFqynWXriog3sxAHt31C2f0pwl8TZvhwDEgNE+kVzlascwxTQNAfVUG8c4IZdDvEGu1DaVv8f2H4UX8oW/x/YfhV5fSaectobOjtICVnXTcajLirgTq4OWZ3GvS52gn4/sPwpLbStj6fsPwq8r8Gnmh7rEBYIA4QaYdDyPqNenP5VtfWexvhR29qWmMLck+n4U5X4NPNewrZ+UWdD+ETgfxhXdrmIkEVpHxAGpOnHf+yof8uWPrR6m+FOV+DTP9EsGwxVx8rBTbIzQYkupiecA1sCKjYTaVq6SLdxWI1IB1A5kbwKlisWtQVF6KE0fr9tQEaFCgTRXN/LPfyrhtRqbvpjq9PbPorme0LHW2etBMqNeUCug+XQ6YPxve61XL2S4q5M0LckxO/wAa64+mahYCGdVYwGYAtyE6muobJx/W3lCMEspK5GGl5SId3I1zEjTlXOcDdt2C3WoS30R/G6tZsJ7rWxiEYLcX5xMOI+ctJo8zrqDp6K1dszRjpXglt3ENu71tt7Ya1OuRJICT3a1SWMQUuLlPaBUjxmrHpBatLdzWGzW7qC4o/EDEyvdrOlIwOyL1zJc6s9Qtwdvm2k98aVdo2WDtZ7gTgSAR3c62GG2faJKxE6g668wQeINZ/Ytj51W5Bj/lI/bWqtgQD3nXiCDWozTX8lkg5TBG9Tqp8OI9tK2DgkS9I87KR3cOFWVk5hPtFSsOoLAwM0RMaxympnOjG9sb5XrN25h7SWQWd7uUAcc3Z4+IrL7A2Ti9m3bdu8FazdJ7Sz2HiYM8DB1rW+U3aDWPkd1VzZb5JXmAhJ9Ogp3au0RfFlOrK5jmDMR2SBoPEyfbXHH06VJbHW8pPGKzdq/eckgtE+qotjaym+cMSM8tMawBu9lavZlgAZfTWkQ9i4oyy3Tu3TT/AEjxZXC3XsNF0IchgGGjTQyPXSsVYlzEVU9KtiXLaLi7AzvZU9ZbH9bZ3uv5w84enfNBzDBdJLiXVZWITrXbLPZyYgBisfksCRXUOieMW5eie1ALLyB3H0wfVXFMVcTM4t/gyTlnfkLZlBE7xW68nu1Bc2hhTLBzae3d/FYqGZG07hx3Gg7WDWcvbDIukiMragcu6r8XlBKzEa0T4m3xdeY1oKXYGzurxbnnaI/zof2VqQaqMK4+VEDjaJ/zL8atia55e2oMUIowBQjvqKICiAowKKiuX+XJDlwh4A3Z9PVVzOywBHeRXU/LgsWMO2sZ2WeEsFYesIfUa5hsxVZpZcwUMdeegFdcPTFQOkOHbOTlJUDf7/eK02xsM4CX1b/y0UXEtA77C9lrUd4JPjVdjW1zjtETKfjW4GfTiZIPoqw2bhiJu2zOOtxeyc7Z0Nrwy+2Odbvtk1tTZ9i5fQ4PtLeyu4nzOsPmd246cJra7ZxDn5NZUhbapLW1gAlRlUnjE7hu0msrg9m4e8TfFzqbK/O3ri+cHuEZLQ4Bt5jhpzrTnABbbhiXv2rkFyZNyw3atuZ5Zgumkg1mxZell0Yw/wA654m0wgbt6+2r7ZjiSuoH+79hqo6KNDkkGcjfrKKt1WLxHADNm/JbWDzrrHOrG2sHSpWHMmoNu7PhU3C76mf/ADTH2wXltxBSxhmX64/qE/srNY7pqj4bDgqTcV1LR3fGr/y8H/xsN/fH/TauP4XFFGViMwUyB38PVXDH06321WB2sLOJxWIWFdwVQMJgkAsY9HrqHs7p5jbTSbvWDdlcLEHkVAM1Q4jEZ8s8BqeZJLE+2otaRrNu9Jrt3EJdV2thQuVQdDxk8DO6tZsvyjLZs32cZ7k/NLwJI0nkoO+uVAzAJ/4FHcuTA3gbtPbQLvLI6wAAEkQNwYAEgDlqCPGOFWvRfabYa716iSARHcd8HnuqtuWiLKkg9pzHIQBPrkeqjw15suQenTmRQaXaHTG/iMikshVjJUntA7gYqkxu1LxvZjdYlSIJJ0imbFmC7FoyLPiToBUIAmg695KNu3sVjrnWnzcOYAH9pb1rrNcR8hbf+bd/9Y/6tuu3iueXtqCBo/43UVCTUUBRChR0VE2ps61fttavIHttvU924yNQQdQRqKzlryb7PUEKjgH+0fnO8mtaTQnSm6jJ3vJ3gGZXKPmXcRcceiAaXgvJ/gbV0X0RxcBJzdY2uYQQZOq93CtRRg1eVNRnrvQrBG31fVdjrGuFcxguwIkidQJMDcPRU230dsBBbhoCqs5jmKpJQFt5iatcooU5U1FWvR6yNwYd4Yg+sa0+Nk2/yt0atw5c6nRQinK/KaiKMCg5+unbdoKIFQdv3nCILbm2z3ETOApKhpkgMCJ04g8azlnb183bK9arK7kEqoysOtwqSpiYIuvHiOVbkyyntm2YtHtzYOHxlvqsTbDqDmGrAq26QykEVnP5qdmfVXP01z40W2tq4q02ICYhuzdYLNu0cqpgWxeXzNZYBTMnKN4OtK6UbdxNlna3cygWtFyqQGbDYm9nkiZDWU0mInSrPHl1qnOEfzU7M+qufprnxpX81GzPqrn6a58a12zg3VLnLluPWBA+/cwt9iRu0qTXO2tMR/NRsz6q5+mufGk/zU7M+qufprnxrdGiIqbq6Y1/Jjs5lVDbuZVJIHW3OMTx13CkL5K9mDdauD/GufGttNCKbppiv5rdmgEdXc7W/wCeuawZ50n+a3ZkyLdye69c+NbYmhFN00o+j3RLCYIscPayswgsWZmIkGJYmBIGgjcKu2po4pe/xhsvf2ojTxoJiVYwGB8Nx5gHcT3A07Dy0dAUINQNKaots9J+pvfJ7eHvYi4EDsLQEIpMLJJ3mN1XwrA9NVtHFgWhj/lItDrDgjHzeY5c/fMxHdPCuvixly1Wc7ZOlhf6ZXUUvc2bi1RQSzQuijUnfwFaWzjFa2jpLC4oZI3lSAwOsQII38xxIrlF27bdGbrdtX8OBF1s/YiJdSG3xJBnTQ8Na6jsc2yqG1+C6q2LfLJlld+7Qj1Ct+XCYz0xhlbUlrjjemnc0n1GPfR9cAoI1kwPTp9KI755UxYJi00mX86TprbZtBuGo4RQJ1I/tR7UUn2k+uuOnRI61vqz61+NIfExJZSIUt9EyFidx360TDNcIkiFWADG8vO7wFIxlkC3cOs5GGpJ0I/4FFPre1ClSJniOHgadJpq756/a91OPuPhUEHFW1vJluWcytBhivDUHfoe+o13ZeH1LYVe2UDGE4FQm48IXdyHIVN+jaEkTEx/dsfeBThsDiWOoMFjwII9ta3pNbQ7+zbNwFTh1dS0mcurIvVTqfxRl7xpQxWzrFxi93DBiVKliFbsEFSIBmIZhoNzHgalSercg6jPHd2mpdsFXCySCCddYyleO/XN7KbpqE20W2irbTszoFIjUFpkndTgut9WfQU+NM2BovdccAdw6wAeoUd6YuMGIK7uWiBt27eagkW7gOkEEbwd+u46aEd476K7eggAEkgnSOEcz3iiuHtIecj0Fc3vUUkvDMTuVB/uJ9wqKUl05oKkSCRMcI5Hvpd26F9JgAbyd8D1ew1HR2K2mYAExmjcCyEEeGaBTsy/5q/rHX9WgHWPvyafnCfVu9tGjBwd/I7wRz7wajiYzSZzxvMQbmSMu7dx506mlx/zVPplhPqUeqqGFDiVUsQsAQLYG4EAg6nQjdA5AU7hySSX3qdBAA1HnbzOhI9elNtfKqWAEm7B8A+Vj6EUn0VIGlw96iPskz+sKVB3L0GACTG4cBzJO79usbjSMz/iD75/dpDMQt1hv1j7KAD3T6ad+Sf2j/eopdYnpNdW1jkvLh9oNcVFzNhlm3dUMSLb849xFbQNWF6ZbYFvFZDtG9hR1akqtgOgksMxaZBO7dwrp4ZvL+/xjyXpW7S23axVvq7eD2latK7i4uGtqquzH5xHyyJmZB11M1vdjqoRcqG2ot28qNoUGTRSOBAgHwrG7B2KzBhhNslszF2CW7ZJd9WYrmkE1t8ChXss2dgqAsRBYhYLEDdO+teWz1P9/wBZ8e/dLwtsG0gYBhlXePyRzoXbSqFyqB2wdAB3TA401ac5LInLIAkRu6sniDxAoSdQWLRdUAmBpkUx2QOJNcXQ86HNmVlEqBBBPmliNzD8amrtxjavAkGAwlRA/BhuJPOldUDdaVB7CbwDxuUrGKBauQAOw24fkmgcuntp9r3U4+7103ePbX7Xupb7jUUwLZKWyCARB1E/QK7pHOgjNmAJUypPZBBkFR+MdO0eFIygrZkA6jf/AHTcKk27YGoUDwEVQyiAowJgEuCdBHabXXl30Y3Myt1jDQarpzAgAA8e+BqKS34N/t/rNTz/AIRTzDD2r/HpoEWwItwZ7R1jWcrTpwMzpwo7tljnAiG46yOyFOkQd3Okoe1HAXTHptlj7SaK4s9YZIIPZMnSEUjSYOvDjQOKwZ4G5OB4k7iByiRPEzypu4JW5+U2X1hbZ9s06x7Vs85HoIze9RSLSFkUiNTng/lHOBpyJHqoEvojfkuWPgH6yPuxTwHzjfmr72pIsEhw0dvkfyQvEd1DCvmOY/StofXmNALCgoQQCJbQ/nGlJaVZIAXnAA3eFM5iLehiXidNxuwd4jcaReDfOKWLAooEhdGcsv0QO6gJrZKIn0ihJ8chU+16fLy1t+DAj7y5/wDZ7aW9tswYQYBGpI3kHgDypo28iIDvUoPaE9xNEJun5u99v9Wp+bvqvun5u99v9Wp899SrDE1msZisLh8dcvXsVaRnsJb6poBgMzBpJ1B3RHDfWlqBj9i2L9y1du21ZrU5ZAIhlykEHzhxg8da1jZPaZT4ZXaS7DvGXfDBt+ZGyNPOUiT4zWrwgVUtm2S9vq0UN5xKqOy/NpB1O/d3xW7cbA4RFe7hkIdxbUJYRiXYEgRH5Jol6XYQWOtXOAtwWRaFsi51kdm0LemsejSullyk1uxial70t06sRBJy+aok5eG4CeMa7u6jcEAFgZLhiACY4Dd3AemapL3TjCLZF5jcCm4bRUocyXFElXWeyQKm4rpJYt4g4Zs3Wi2bhhZGVVLHWd8A6eFY4ZfDXLH5TnZJzS4MAGA+4SRpHefXSL7Srhc5m2+hDb4Ebxv31XYbpZh7l2xaUtmxFvrLcrAywx1M6N2G08KZu9NsMLdm4BefrlZkRLZZ8iHKzso3KIPGnDL4OWPyvblxGMnNpuhX4+ikM+oylzMzIaIytzHOPZVRj+mmFtrbYG5c6y31oFu2WItcbjDTKo1knkeVXmExS3US5baUdQynmpEg1LjZO4ssphGUogOcEAHRXGuWOXImhceIym5OZd4fdmAaZHKal3bqrGZgs8yB76aGKt/WJ94fGopAdcrIwbUv9FtxY7iB30du6oMgOzRpIbjqRLQo4ct1L+V2/wAdPvD40Yxdv6xPvD40CGXKFJ1OYloBOpVuQmBoJ7hR2hmFyJ1Okgj6Cjjwn3U7bvqTCupPIEH3U5UEK9iDlQqGkAmMjcLbb5HPTxNLS2rFVyyiqfOUxPZC+cNTGb21K1owDV2aRiq22lVgMuuVTvU6eaPyj6qTYJAVgCQMwIgg5c3ZMHUwANORMTuMqk3C2VsoGaDA7409tNmjEpvzGM05YPned5sZp1mN2sxSboOjEESy6AEkKksJid7e8VHcklu0GJBKgAhg8KFOU9pN2pJjdu1qzpekRrVpHLMyg6gLmXgBO5hzJ9VN3oVbiBSN+UBWjVQdIEecT6qmimLF1iWzKVhoBkGRAM6emm1JcQWlSUfXQEwYykEDWCANfHuprNb+tf8ASNU4Gk/xwps0IUcUCKBqKyfT7fs//wB+x/vrNYz+mH/5iz/p1vOkOwExiW0d7lvq7guK1ohWDqCBqQY86dNZiq89CMP1JtZ72brRf683Ju9cNA+ciJju79+tejDyYzGbcc8Lb0wO2MJ1wxNvi20sRH5ww7lfaBTuz8V1+L+Va/O4e+o/wsFaB/zs49Bre4LolZti2A1xmS818uzAtcuOpRi5y6iDwjd4yxgOhOHtLbVXuxbS8gkrqMQIYmF1IG7w1mt/mx1r+/vTP4qwWUg4W+o7WH2fZvjvCYmLg9KM9T+ijMGwhtqGYbPv5VYkAn5Q2hI1A8K22E6I2EjtXGHyX5KQxWDaLZiTC+drHLuqK/Qiz1VlEvYi2bKsi3LbqrlLhLMrHLBEnkKXzY2a/v2k8eUu2W2FcRrwZEFtDsd4QMzBR1zaZnJY+k1t+hA//H4T+5X3VExvQrDutsI96z1drqJtOAXtbyjEgyJJPp8K0OAwa2rSWrYhEUKo3wFEDXie+ufl8mOU6dMMbL2dmjBomojXB1KmhNAUU0C81VHSKxefqepE5Ly3G7eWVTev5UydNBpvFWgNGzQJjcJ07uGlWXVSzbE4TYOIVEzozlBB7YlkFzCwkloLG2uIXXfLSRm1bw2xcapHWBnWbbMOsUkwbi3k1YSCoTfvL690jZeLxp0udeGFlplNM3z7TKgqWHzAAmf81DaW0cUWcoMSFKDIRabz0tyYGXNLXLigyIOTuaPRvLeunHr32PF7JxZW0ILZbeHDrIJZkjrdS6hhvkaZudMHYWL61iA2Trc6gsJC9e7FRD9nskHiIOXwk4jFYrqmKm/m69gIRp/o9wgeb+C63Jr5vfFOW8di+rU5L8/KwTKCfk5UXYj8UZsn43ZiJmpvL6XU+0C1snGAkZH1y69Ysf0jrM3n8LSqnPQCI1qbj9m32sWFt2nW4tu4GIZFyk22EQLhEsxBBBPfl4Q8Dfxxtw3XC5ktZSVeMzMpeT1YB7JOYNGXUCYmkYfHbQPVnLehkTMrIwhzautqcugzKoPIleetvL6Tr7X2wMFdS4We2yDq1GrggkRGgc5YAjKIUEEgnMYurF9WLBWBymDBBgxMe2qTo3iMS11xeFwKUXLmXs5kALw0AyTcjUCQmnGNDHt98fCuOfvt0x9AopPVjkaXRzWGzM0ZNIpQoDFHNETRE0BtRTQolFAqiBo5ojQGgpc0kUJohJNFRMBRmgM0Zopo4oB66AoqMUCiaIbqMGjoEGjFHQBoCijBoUdAKasWMmaCTmM9okxoBA5DSnRQmgAo9P4iimhNA0KGahRkUUmiNGeFJfjQKaaSrUDQFELmiz0jhSmoDLUJpIPuoKaKM0eaiY6U05j1UD60oU3h9f48KVc3UQc0YNImlJ/HsoDzUsGk0o8PGgAopolO+hzoFgUQoqMmgJqSDRk0k/t+NAc0r10laVFB/9k=" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEgw-ri7Ue17fMjPDPOwdDPsGHcfcnmbn-5w&s" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzKlh_JNHiv-PIq0FpzvLwtlTXZ6QdXr3H0Q&s" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKEuH4GHyteV-hObiv_hv2Jk92-FqFm2PDuw&s" alt="">
+        </div>
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">Siga-nos no Instagram <a href="https://www.instagram.com/pazparaipaba/" target="_blank">@pazparaipaba</a> para mais momentos como esses!</p>
+    </section>
+
+    <!-- Eventos -->
+    <section id="events">
+        <h2>Nossos Eventos</h2>
+        <div class="card">
+            <ul class="event-list">
+                <li><strong>Culto de Celebração</strong> - Domingo, 17:30h - Venha adorar e ouvir a Palavra!</li>
+                <li><strong>Terça, Quarta, Quinta e Sexta</strong> - Aprofunde-se nas Escrituras conosco nos nossos Life Groups.</li>
+                <li><strong>Quarta de Guerra (Sala de Oração)</strong> - Toda Quarta, 16H00.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Life Groups -->
+    <section id="life-groups">
+        <h2>Life Groups</h2>
+        <div class="card">
+            <p>Nossos <strong>Life Groups</strong> são pequenos grupos que se reúnem durante a semana para compartilhar a vida, estudar a Bíblia e orar juntos. É o lugar perfeito para construir amizades verdadeiras e crescer na fé. Temos grupos para todas as idades e fases da vida!</p>
+            <ul class="life-group-list">
+                <li><strong>Life Atos</strong> - Terça-feira, 20h - Bairro Boa Esperança</li>
+                <li><strong>Por Toda Vida e Por Toda Vida Kids</strong> - Quarta-feira, 20h - Bairro Monte Alverne</li>
+                <li><strong>Lagoinha Life</strong> - Quarta-feira, 20h - Rua Campo Verde, nº 35</li>
+                <li><strong>Maranata</strong> - Quinta-feira, 17:30h - Segunda Etapa</li>
+                <li><strong>Filhos da Promessa</strong> - Quinta-feira, 20h - Bairro Centro</li>
+                <li><strong>Leão de Judá</strong> - Quinta-feira, 20h - Paracuru</li>
+                <li><strong>Life Teen</strong> - Sexta-feira, 20h - Bairro Monte Alverne</li>
+            </ul>
+            <p style="margin-top: 1rem;">Quer participar? Entre em contato pelo <a href="https://api.whatsapp.com/send?phone=5585994470408&text=Olá! Gostaria de saber mais sobre os Life Groups da Paz Church Paraipaba." target="_blank">WhatsApp</a> e descubra o grupo ideal para você!</p>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact">
+        <h2>Entre em Contato</h2>
+        <div class="card">
+            <p><strong>Endereço:</strong> Rua Antônio Henrique Azevedo, 363, ao lado da areninha - Paraipaba-CE</p>
+            <p><strong>Telefone:</strong> (85) 99447-0408</p>
+            <p><strong>Email:</strong> pazparaipaba@gmail.com</p>
+            <p><strong>Instagram:</strong> <a href="https://www.instagram.com/pazparaipaba/" target="_blank">@pazparaipaba</a></p>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2025 Paz Church Paraipaba. Todos os direitos reservados. | Siga-nos no <a href="https://www.instagram.com/pazparaipaba/" target="_blank">Instagram</a></p>
+    </footer>
+</body>
+</html>
